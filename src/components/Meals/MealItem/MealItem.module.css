@@ -10,8 +10,17 @@
   margin: 0 0 0.25rem 0;
 }
 
+.name {
+  font-size: 34px;
+}
+
 .description {
   font-style: italic;
+}
+
+.img {
+  width: 170px;
+  border-radius: 100px;
 }
 
 .price {

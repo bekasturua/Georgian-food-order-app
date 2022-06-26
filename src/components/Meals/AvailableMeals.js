@@ -6,12 +6,13 @@ const DUMMY_MEALS = [
   {
     id: "m1",
     name: "Khinkali",
+    img: "https://georgianjournal.ge/media/images/georgianews/2015/July/Cuisine/mushroom-khinkali1.jpg",
     description: "With pork and beef",
     price: 1,
   },
   {
     id: "m2",
-    name: "Khachapuri",
+    name: "Ajarian Khachapuri",
     description: "700 grams of cheese and sulguni",
     price: 18.5,
   },
@@ -70,6 +71,7 @@ const AvailableMeals = () => {
     <MealItem
       key={meal.id}
       id={meal.id}
+      img={meal.img}
       name={meal.name}
       description={meal.description}
       price={meal.price}
