@@ -103,7 +103,7 @@ const DUMMY_MEALS = [
   },
   {
     id: "m15",
-    name: "Mushrooms",
+    name: "Mushroom",
     img: "https://gastronomia.ge/wp-content/uploads/2019/01/50689031_1154416674725620_8892686162385174528_n.jpg",
     description: "Mushrooms and sulgun",
     price: 12.5,
