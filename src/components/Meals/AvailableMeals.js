@@ -14,7 +14,7 @@ const DUMMY_MEALS = [
     id: "m2",
     name: "Ajarian Khachapuri",
     img: "https://gastronomia.ge/wp-content/uploads/2019/01/JHU.jpg",
-    description: "700 grams of cheese and sulguni",
+    description: "700 grams of cheese, sulguni and egg",
     price: 18.5,
   },
   {
