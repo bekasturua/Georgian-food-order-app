@@ -8,7 +8,7 @@ const DUMMY_MEALS = [
     name: "Khinkali",
     img: "https://georgianjournal.ge/media/images/georgianews/2015/July/Cuisine/mushroom-khinkali1.jpg",
     description: "With pork and beef",
-    price: 1,
+    price: 1.5,
   },
   {
     id: "m2",
