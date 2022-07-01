@@ -3,9 +3,15 @@ import classes from "./MealsSummary.module.css";
 const MealsSummary = () => {
   return (
     <section className={classes.summary}>
-      <h2>Restaurants</h2>
-      <p>Advice for Nanuka</p>
-      <p>Eat delicious snacks and correct your evil character.</p>
+      <h2>Menu</h2>
+      <p>
+        Choose your favorite meal from our broad selection of available meals
+        and enjoy a delicious lunch or dinner at home.
+      </p>
+      <p>
+        All our dishes are Georgian and are made with high quality ingredients,
+        on time and of course by experienced chefs!
+      </p>
     </section>
   );
 };
