@@ -3,7 +3,7 @@ import { useRef, useState } from "react";
 import classes from "./Checkout.module.css";
 
 const isEmpty = (value) => value.trim() === "";
-const isFiveChars = (value) => value.trim().length === 5;
+const isFiveChars = (value) => value.trim().length >= 4;
 
 const Checkout = (props) => {
   const [formInputValidity, setFormInputValidity] = useState({
@@ -29,7 +29,7 @@ const Checkout = (props) => {
     const enteredNameIsValid = !isEmpty(enteredName);
     const enteredStreetIsValid = !isEmpty(enteredStreet);
     const enteredCityIsValid = !isEmpty(enteredCity);
-    const enteredPostalCodeIsValid = !isFiveChars(enteredPorstalCode);
+    const enteredPostalCodeIsValid = isFiveChars(enteredPorstalCode);
 
     setFormInputValidity({
       name: enteredNameIsValid,
@@ -44,7 +44,7 @@ const Checkout = (props) => {
       enteredPostalCodeIsValid &&
       enteredCityIsValid;
 
-    if (formIsValid) {
+    if (!formIsValid) {
       return;
     }
 
@@ -85,7 +85,7 @@ const Checkout = (props) => {
         <label htmlFor="postal">Postal Code</label>
         <input type="text" id="postal" ref={postalCodeInputRef} />
         {!formInputValidity.postalCode && (
-          <p>Please enter a valid postalCode (5 charecters long)!</p>
+          <p>Please enter a valid postalCode (4+ charecters long)!</p>
         )}
       </div>
       <div className={cityControlClasses}>
