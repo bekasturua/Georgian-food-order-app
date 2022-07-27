@@ -8,7 +8,7 @@ import Checkout from "./Checkout";
 
 const Cart = (props) => {
   const [isCheckout, setIsCheckout] = useState(false);
-  const [isSubmiting, setIsSubmiting] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [didSubmit, setDidSubmit] = useState(false);
   const cartCtx = useContext(CartContext);
 
@@ -20,7 +20,7 @@ const Cart = (props) => {
   };
 
   const cartItemAddHandler = (item) => {
-    cartCtx.addItem({ ...item, amount: 1 });
+    cartCtx.addItem(item);
   };
 
   const orderHandler = () => {
@@ -28,7 +28,7 @@ const Cart = (props) => {
   };
 
   const submitOrderHandler = async (userData) => {
-    setIsSubmiting(true);
+    setIsSubmitting(true);
     await fetch(
       "https://georgian-food-oder-app-default-rtdb.firebaseio.com/orders.json",
       {
@@ -39,7 +39,7 @@ const Cart = (props) => {
         }),
       }
     );
-    setIsSubmiting(false);
+    setIsSubmitting(false);
     setDidSubmit(true);
     cartCtx.clearCart();
   };
@@ -86,9 +86,11 @@ const Cart = (props) => {
     </React.Fragment>
   );
 
-  const isSubmitingModalContent = (
+  const isSubmittingModalContent = <p>Sending order data...</p>;
+
+  const didSubmitModalContent = (
     <React.Fragment>
-      <p>Sending order data...</p>
+      <p>Successfully sent the order!</p>
       <div className={classes.actions}>
         <button className={classes.button} onClick={props.onClose}>
           Close
@@ -97,13 +99,11 @@ const Cart = (props) => {
     </React.Fragment>
   );
 
-  const didSubmitModalContent = <p>Successfully sent the order!</p>;
-
   return (
     <Modal onClose={props.onClose}>
-      {!isSubmiting && !didSubmit && cartModalContent}
-      {isSubmiting && isSubmitingModalContent}
-      {!isSubmiting && didSubmit && didSubmitModalContent}
+      {!isSubmitting && !didSubmit && cartModalContent}
+      {isSubmitting && isSubmittingModalContent}
+      {!isSubmitting && didSubmit && didSubmitModalContent}
     </Modal>
   );
 };
