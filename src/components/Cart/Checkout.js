@@ -92,8 +92,8 @@ const Checkout = (props) => {
         {!formInputValidity.street && <p>Please enter a valid street!</p>}
       </div>
       <div className={numberControlClasses}>
-        <label htmlFor="postal">Number</label>
-        <input type="number" id="postal" ref={numberInputRef} />
+        <label htmlFor="number">Number</label>
+        <input type="number" id="number" ref={numberInputRef} />
         {!formInputValidity.number && (
           <p>Please enter a valid number (9+ charecters long)!</p>
         )}
@@ -104,8 +104,8 @@ const Checkout = (props) => {
         {!formInputValidity.city && <p>Please enter a valid city!</p>}
       </div>
       <div className={commentControlClasses}>
-        <label htmlFor="city">Comment</label>
-        <input type="text" id="city" ref={commentInputRef} />
+        <label htmlFor="comment">Comment</label>
+        <input type="text" id="comment" ref={commentInputRef} />
         {!formInputValidity.comment && <p>Please enter a valid Comment!</p>}
       </div>
       <div className={classes.actions}>
