@@ -85,7 +85,7 @@ const Checkout = (props) => {
         <label htmlFor="postal">Number</label>
         <input type="text" id="postal" ref={numberInputRef} />
         {!formInputValidity.number && (
-          <p>Please enter a valid number (4+ charecters long)!</p>
+          <p>Please enter a valid number (9+ charecters long)!</p>
         )}
       </div>
       <div className={cityControlClasses}>
