@@ -10,6 +10,7 @@ const Checkout = (props) => {
     name: true,
     street: true,
     city: true,
+    comment: true,
     number: true,
   });
 
@@ -17,6 +18,7 @@ const Checkout = (props) => {
   const streetInputRef = useRef();
   const numberInputRef = useRef();
   const cityInputRef = useRef();
+  const commentInputRef = useRef();
 
   const confirmHandler = (event) => {
     event.preventDefault();
@@ -25,16 +27,19 @@ const Checkout = (props) => {
     const enteredStreet = streetInputRef.current.value;
     const enteredPorstalCode = numberInputRef.current.value;
     const enteredCity = cityInputRef.current.value;
+    const enteredComment = commentInputRef.current.value;
 
     const enteredNameIsValid = !isEmpty(enteredName);
     const enteredStreetIsValid = !isEmpty(enteredStreet);
     const enteredCityIsValid = !isEmpty(enteredCity);
+    const enteredCommentIsValid = !isEmpty(enteredComment);
     const enterednumberIsValid = isFiveChars(enteredPorstalCode);
 
     setFormInputValidity({
       name: enteredNameIsValid,
       street: enteredStreetIsValid,
       city: enteredCityIsValid,
+      comment: enteredCommentIsValid,
       number: enterednumberIsValid,
     });
 
@@ -42,6 +47,7 @@ const Checkout = (props) => {
       enteredNameIsValid &&
       enteredStreetIsValid &&
       enterednumberIsValid &&
+      enteredCommentIsValid &&
       enteredCityIsValid;
 
     if (!formIsValid) {
@@ -51,6 +57,7 @@ const Checkout = (props) => {
     props.onConfirm({
       name: enteredName,
       street: enteredStreet,
+      comment: enteredComment,
       city: enteredCity,
       number: enteredPorstalCode,
     });
@@ -67,6 +74,9 @@ const Checkout = (props) => {
   }`;
   const cityControlClasses = `${classes.control} ${
     formInputValidity.city ? "" : classes.invalid
+  }`;
+  const commentControlClasses = `${classes.control} ${
+    formInputValidity.comment ? "" : classes.invalid
   }`;
 
   return (
@@ -92,6 +102,11 @@ const Checkout = (props) => {
         <label htmlFor="city">City</label>
         <input type="text" id="city" ref={cityInputRef} />
         {!formInputValidity.city && <p>Please enter a valid city!</p>}
+      </div>
+      <div className={commentControlClasses}>
+        <label htmlFor="city">Comment</label>
+        <input type="text" id="city" ref={commentInputRef} />
+        {!formInputValidity.comment && <p>Please enter a valid Comment!</p>}
       </div>
       <div className={classes.actions}>
         <button type="button" onClick={props.onCancel}>

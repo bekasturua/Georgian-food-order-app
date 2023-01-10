@@ -93,7 +93,7 @@ const Cart = (props) => {
     <React.Fragment>
       <p className={classes.succcessfulOrder}>Successfully sent the order!</p>
       <div className={classes.order} >
-        <p className={classes.couriesWay}>The courier is on the way.</p>
+        <p className={classes.couriesWay}>LULULU is on the way.</p>
         <img className={classes.orderImg} src={Courier} alt="Courier" />
       </div>
       <div className={classes.actions}>
