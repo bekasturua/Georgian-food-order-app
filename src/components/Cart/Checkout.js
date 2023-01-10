@@ -83,7 +83,7 @@ const Checkout = (props) => {
       </div>
       <div className={numberControlClasses}>
         <label htmlFor="postal">Number</label>
-        <input type="text" id="postal" ref={numberInputRef} />
+        <input type="number" id="postal" ref={numberInputRef} />
         {!formInputValidity.number && (
           <p>Please enter a valid number (9+ charecters long)!</p>
         )}
