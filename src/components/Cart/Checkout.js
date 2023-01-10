@@ -10,12 +10,12 @@ const Checkout = (props) => {
     name: true,
     street: true,
     city: true,
-    postalCode: true,
+    number: true,
   });
 
   const nameInputRef = useRef();
   const streetInputRef = useRef();
-  const postalCodeInputRef = useRef();
+  const numberInputRef = useRef();
   const cityInputRef = useRef();
 
   const confirmHandler = (event) => {
@@ -23,25 +23,25 @@ const Checkout = (props) => {
 
     const enteredName = nameInputRef.current.value;
     const enteredStreet = streetInputRef.current.value;
-    const enteredPorstalCode = postalCodeInputRef.current.value;
+    const enteredPorstalCode = numberInputRef.current.value;
     const enteredCity = cityInputRef.current.value;
 
     const enteredNameIsValid = !isEmpty(enteredName);
     const enteredStreetIsValid = !isEmpty(enteredStreet);
     const enteredCityIsValid = !isEmpty(enteredCity);
-    const enteredPostalCodeIsValid = isFiveChars(enteredPorstalCode);
+    const enterednumberIsValid = isFiveChars(enteredPorstalCode);
 
     setFormInputValidity({
       name: enteredNameIsValid,
       street: enteredStreetIsValid,
       city: enteredCityIsValid,
-      postalCode: enteredPostalCodeIsValid,
+      number: enterednumberIsValid,
     });
 
     const formIsValid =
       enteredNameIsValid &&
       enteredStreetIsValid &&
-      enteredPostalCodeIsValid &&
+      enterednumberIsValid &&
       enteredCityIsValid;
 
     if (!formIsValid) {
@@ -52,7 +52,7 @@ const Checkout = (props) => {
       name: enteredName,
       street: enteredStreet,
       city: enteredCity,
-      postalCode: enteredPorstalCode,
+      number: enteredPorstalCode,
     });
   };
   const nameControlClasses = `${classes.control} ${
@@ -62,8 +62,8 @@ const Checkout = (props) => {
   const streetControlClasses = `${classes.control} ${
     formInputValidity.street ? "" : classes.invalid
   }`;
-  const postalCodeControlClasses = `${classes.control} ${
-    formInputValidity.postalCode ? "" : classes.invalid
+  const numberControlClasses = `${classes.control} ${
+    formInputValidity.number ? "" : classes.invalid
   }`;
   const cityControlClasses = `${classes.control} ${
     formInputValidity.city ? "" : classes.invalid
@@ -81,11 +81,11 @@ const Checkout = (props) => {
         <input type="text" id="street" ref={streetInputRef} />
         {!formInputValidity.street && <p>Please enter a valid street!</p>}
       </div>
-      <div className={postalCodeControlClasses}>
-        <label htmlFor="postal">Postal Code</label>
-        <input type="text" id="postal" ref={postalCodeInputRef} />
-        {!formInputValidity.postalCode && (
-          <p>Please enter a valid postalCode (4+ charecters long)!</p>
+      <div className={numberControlClasses}>
+        <label htmlFor="postal">Number</label>
+        <input type="text" id="postal" ref={numberInputRef} />
+        {!formInputValidity.number && (
+          <p>Please enter a valid number (4+ charecters long)!</p>
         )}
       </div>
       <div className={cityControlClasses}>
