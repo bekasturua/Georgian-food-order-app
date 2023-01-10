@@ -44,3 +44,23 @@
   background-color: #8a2b06;
   color: white;
 }
+
+.succcessfulOrder {
+  display: flex;
+  justify-content: center;
+  color: green;
+  font-weight: bold;
+}
+
+.couriesWay {
+  color: blue;
+}
+
+.order {
+  display: flex;
+  justify-content: center;
+}
+
+.orderImg {
+  width: 200px;
+}

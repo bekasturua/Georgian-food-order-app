@@ -5,6 +5,7 @@ import CartItem from "./CartItem";
 import classes from "./Cart.module.css";
 import CartContext from "../../store/cart-context";
 import Checkout from "./Checkout";
+import Courier from "../../assets/courier.gif";
 
 const Cart = (props) => {
   const [isCheckout, setIsCheckout] = useState(false);
@@ -90,7 +91,11 @@ const Cart = (props) => {
 
   const didSubmitModalContent = (
     <React.Fragment>
-      <p>Successfully sent the order!</p>
+      <p className={classes.succcessfulOrder}>Successfully sent the order!</p>
+      <div className={classes.order} >
+        <p className={classes.couriesWay}>The courier is on the way.</p>
+        <img className={classes.orderImg} src={Courier} alt="Courier" />
+      </div>
       <div className={classes.actions}>
         <button className={classes.button} onClick={props.onClose}>
           Close
