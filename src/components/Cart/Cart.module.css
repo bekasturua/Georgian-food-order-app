@@ -59,8 +59,25 @@
 .order {
   display: flex;
   justify-content: center;
+  font-weight: bold;
 }
 
 .orderImg {
   width: 200px;
+}
+
+.orderDone p {
+  margin: 10px;
+  display: flex;
+  justify-content: center;
+  color: green;
+  font-weight: bold;
+}
+
+.orderDone span {
+  display: flex;
+  justify-content: center;
+  color: #8a2b06;
+  font-size: 40px;
+  font-weight: bold;
 }

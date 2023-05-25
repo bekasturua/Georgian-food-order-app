@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 
 import Modal from "../UI/Modal";
 import CartItem from "./CartItem";
@@ -8,6 +8,7 @@ import Checkout from "./Checkout";
 import Courier from "../../assets/courier.gif";
 
 const Cart = (props) => {
+  const [num, setNum] = useState("");
   const [isCheckout, setIsCheckout] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [didSubmit, setDidSubmit] = useState(false);
@@ -15,6 +16,14 @@ const Cart = (props) => {
 
   const totalAmount = `₾${cartCtx.totalAmount.toFixed(2)}`;
   const hasItems = cartCtx.items.length > 0;
+
+  function randomNumberInRange(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
+
+  useEffect(() => {
+    setNum(randomNumberInRange(15, 40));
+  }, []);
 
   const cartItemRemoveHandler = (id) => {
     cartCtx.removeItem(id);
@@ -92,9 +101,19 @@ const Cart = (props) => {
   const didSubmitModalContent = (
     <React.Fragment>
       <p className={classes.succcessfulOrder}>Successfully sent the order!</p>
-      <div className={classes.order} >
+      <div className={classes.order}>
         <p className={classes.couriesWay}>LULULU is on the way.</p>
         <img className={classes.orderImg} src={Courier} alt="Courier" />
+      </div>
+      <div>
+        <div className="orderDone">
+          <p>The order will arrive in:</p>
+          <span>
+            <div>
+              <h2>{num} Min</h2>
+            </div>
+          </span>
+        </div>
       </div>
       <div className={classes.actions}>
         <button className={classes.button} onClick={props.onClose}>
